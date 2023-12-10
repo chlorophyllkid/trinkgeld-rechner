@@ -1,5 +1,6 @@
 ---
-
+import { MyElement } from '../components/my-element.ts'
+import { MyCounter } from '../components/my-counter.ts'
 ---
 
 <html lang="en">
@@ -11,6 +12,8 @@
     <title>Astro</title>
   </head>
   <body>
-    <h1>Astro</h1>
+    <MyElement client:load />
+    <hr />
+    <MyCounter client:load />
   </body>
 </html>
