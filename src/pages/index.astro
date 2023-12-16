@@ -1,22 +1,15 @@
 ---
-import { MyElement } from '../components/my-element.ts'
-import { MyCounter } from '../components/my-counter.ts'
-import { TrinkgeldRechner } from '../components/trinkgeld-rechner.ts'
+import BaseHead from '../components/BaseHead/BaseHead.astro'
+
+import TrinkgeldRechner from '../components/TrinkgeldRechner/TrinkgeldRechner.ts'
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
+<html lang="de">
+  <BaseHead />
   <body>
-    <MyElement client:load />
-    <hr />
-    <MyCounter client:load />
-    <hr />
-    <TrinkgeldRechner client:load />
+    <main>
+      <h1>Trinkgeld-Rechner</h1>
+      <TrinkgeldRechner client:load />
+    </main>
   </body>
 </html>
