@@ -9,6 +9,7 @@ class TrinkgeldRechner extends LitElement {
 
   @state()
   private _submitEnabled = false
+  private _betrag = ''
   private _values = new Array<string>()
   private _percentages = [0, 5, 10, 15, 20]
   private _emojis = ['😢', '😕', '🙂', '😊', '😍']
@@ -39,6 +40,7 @@ class TrinkgeldRechner extends LitElement {
 
     this._values = values
 
+    this._betrag = betrag.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })
     this._input.value = ''
     this._submitEnabled = false
   }
@@ -55,6 +57,7 @@ class TrinkgeldRechner extends LitElement {
           placeholder="bspw. 23,45"
           pattern="[0-9]+([,][0-9]+)?"
           oninvalid="this.setCustomValidity('Es können nur Zahlen im deutschem Zahlenformat eingegeben werden.')"
+          oninput="this.setCustomValidity('')"
         />
         <button type="submit" ?disabled=${!this._submitEnabled}>Berechnen</button>
       </form>
@@ -64,8 +67,8 @@ class TrinkgeldRechner extends LitElement {
             <h2>Ergebnis</h2>
 
             <p>
-              Mit ${this._percentages[2]} % Trinkgeld, solltest du <br />
-              mind. ${this._values[2]} bezahlen.
+              Statt ${this._betrag} bezahlst du lieber ${this._values[2]}, denn damit gibst du ${this._percentages[2]} %
+              Trinkgeld.
             </p>
 
             <details>
