@@ -25,7 +25,8 @@ class TrinkgeldRechner extends LitElement {
     event.preventDefault()
     const form = event.target as HTMLFormElement
     const formData = new FormData(form)
-    const betrag = parseFloat(formData.get('betrag') as string)
+    const betragString = formData.get('betrag') as string
+    const betrag = parseFloat(betragString.replace('.', '').replace(',', '.'))
 
     const values = new Array<string>()
 
@@ -46,7 +47,15 @@ class TrinkgeldRechner extends LitElement {
     return html`
       <form @submit=${this._onSubmit}>
         <label for="betrag">Betrag</label>
-        <input @input=${this._inputChanged} type="number" id="betrag" name="betrag" min="0" step="0.01" />
+        <input
+          @input=${this._inputChanged}
+          id="betrag"
+          name="betrag"
+          type="text"
+          placeholder="bspw. 23,45"
+          pattern="[0-9]+([,][0-9]+)?"
+          oninvalid="this.setCustomValidity('Es können nur Zahlen im deutschem Zahlenformat eingegeben werden.')"
+        />
         <button type="submit" ?disabled=${!this._submitEnabled}>Berechnen</button>
       </form>
 
