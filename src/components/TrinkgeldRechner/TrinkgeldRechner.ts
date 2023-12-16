@@ -33,7 +33,7 @@ class TrinkgeldRechner extends LitElement {
       const trinkgeld = betrag * (percentage / 100)
       const total = betrag + trinkgeld
 
-      values.push(total.toFixed(2))
+      values.push(total.toLocaleString('de-DE', { minimumFractionDigits: 2 }))
     })
 
     this._values = values
@@ -54,7 +54,10 @@ class TrinkgeldRechner extends LitElement {
         ? html`
             <h2>Ergebnis</h2>
 
-            <p>Mit ${this._percentages[2]}% Trinkgeld, solltest du mind. ${this._values[2]} € bezahlen.</p>
+            <p>
+              Mit ${this._percentages[2]} % Trinkgeld, solltest du <br />
+              mind. ${this._values[2]} € bezahlen.
+            </p>
 
             <details>
               <summary>Weitere Optionen</summary>

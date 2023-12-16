@@ -14,6 +14,25 @@ const trinkgeldRechnerStyles = css`
   }
 
   /* styles */
+  form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  input {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: right;
+  }
+
+  input,
+  button {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
   table {
     margin: 0 auto;
     border-collapse: collapse;
