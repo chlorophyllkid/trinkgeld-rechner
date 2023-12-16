@@ -1,0 +1,20 @@
+@import './reset.css';
+
+/* @link https://utopia.fyi/clamp/calculator?a=360,840,16—32 */
+:root {
+  --fluid-16-32: clamp(1rem, 0.25rem + 3.3333vw, 2rem);
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  line-height: 1.5;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+main {
+  max-width: 50ch;
+  text-align: center;
+  margin: 0 auto;
+  padding: var(--fluid-16-32);
+}
