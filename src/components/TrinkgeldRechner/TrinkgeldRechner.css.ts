@@ -11,6 +11,7 @@ const trinkgeldRechnerStyles = css`
   input,
   button {
     font-family: inherit;
+    font-size: inherit;
   }
 
   /* styles */
