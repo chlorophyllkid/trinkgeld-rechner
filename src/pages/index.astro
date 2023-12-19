@@ -11,6 +11,7 @@ import ViewSwitch from '../components/ViewSwitch/ViewSwitch.ts'
     <main>
       <h1>Trinkgeld-Rechner</h1>
 
+      <!-- @ts-ignore -->
       <ViewSwitch client:load view1label="Rechnen" view2label="Üben">
         <TrinkgeldRechner slot="view1" client:load />
         <div slot="view2">Hello World</div>
