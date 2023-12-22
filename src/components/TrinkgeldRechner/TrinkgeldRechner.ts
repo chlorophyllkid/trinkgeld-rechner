@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit'
+import { LitElement, html } from 'lit'
 import { customElement, state, query } from 'lit/decorators.js'
 
 import trinkgeldRechnerStyles from './TrinkgeldRechner.css.ts'

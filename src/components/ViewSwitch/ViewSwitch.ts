@@ -12,8 +12,14 @@ class ViewSwitch extends LitElement {
       border-radius: 4px;
     }
 
-    div + button {
-      margin-top: 3rem;
+    :host {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+
+      /* @link https://utopia.fyi/clamp/calculator?a=360,840,16—32 */
+      padding: clamp(1rem, 0.25rem + 3.3333vw, 2rem);
     }
   `
 
@@ -37,10 +43,14 @@ class ViewSwitch extends LitElement {
         <slot name="view2" ?hidden=${this._show === 'view1'}></slot>
       </div>
 
-      <button @click=${this._toggleView}>
-        <span ?hidden=${this._show === 'view2'}>${this.view2label}</span>
-        <span ?hidden=${this._show === 'view1'}>${this.view1label}</span>
-      </button>
+      <div>
+        <hr />
+
+        <button @click=${this._toggleView}>
+          <span ?hidden=${this._show === 'view2'}>${this.view2label}</span>
+          <span ?hidden=${this._show === 'view1'}>${this.view1label}</span>
+        </button>
+      </div>
     `
   }
 }

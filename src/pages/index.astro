@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead/BaseHead.astro'
 
 import TrinkgeldRechner from '../components/TrinkgeldRechner/TrinkgeldRechner.ts'
+import TrinkgeldSpiel from '../components/TrinkgeldSpiel/TrinkgeldSpiel.ts'
 import ViewSwitch from '../components/ViewSwitch/ViewSwitch.ts'
 ---
 
@@ -9,12 +10,16 @@ import ViewSwitch from '../components/ViewSwitch/ViewSwitch.ts'
   <BaseHead />
   <body>
     <main>
-      <h1>Trinkgeld-Rechner</h1>
-
       <!-- @ts-ignore -->
       <ViewSwitch client:load view1label="Rechnen" view2label="Üben">
-        <TrinkgeldRechner slot="view1" client:load />
-        <div slot="view2">Hello World</div>
+        <div slot="view1">
+          <h1>Trinkgeld-Rechner</h1>
+          <TrinkgeldRechner client:load />
+        </div>
+        <div slot="view2">
+          <h1>Trinkgeld-Spiel</h1>
+          <TrinkgeldSpiel client:load />
+        </div>
       </ViewSwitch>
     </main>
   </body>
