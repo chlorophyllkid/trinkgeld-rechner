@@ -58,7 +58,7 @@ class TrinkgeldSpiel extends LitElement {
         Die Rechnung kommt, und du musst
         ${this._randomBetrag.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })} bezahlen.
       </p>
-      <p>Wie viel Trinkgeld gibst du?</p>
+      <p>Wie viel Geld gibst du?</p>
 
       <form @submit=${this._onSubmit}>
         <label for="betrag">Betrag</label>
@@ -77,6 +77,12 @@ class TrinkgeldSpiel extends LitElement {
 
       ${this._percentageDifference !== undefined
         ? html`
+            ${this._percentageDifference < 0
+              ? html`
+                  <h2>😭</h2>
+                  <p>Du kannst doch nicht weniger bezahlen, als es kostet!</p>
+                `
+              : ''}
             ${0 <= this._percentageDifference && this._percentageDifference < 5
               ? html`
                   <h2>😢</h2>
